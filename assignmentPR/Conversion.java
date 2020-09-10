@@ -1,38 +1,77 @@
-
 public class Conversion
 {
-    int characteristic;
-    int numerator;
-    int denominator;  
+    // for final storage of characteristic after testing
+    int c;
+    // for final storage of numerator after testing
+    int n;
+     // for final storage of denominator after testing
+    int d; 
     
-    String number = "123.456";
+    // for interum storage after testing
+    String characteristic = "";
+    String numerator = "";
+    String denominator = "1";  
+    
+    char[] number = {'1','2','3','.','4','5','6'};
 
      
-    public void conversion() {
-    //if the conversion from C string to integers can take place
-    if(characteristic(number, characteristic) && mantissa(number, numerator, denominator))
+    
+    /*Breaks the passed char array into the characteristic string
+     * and mantissa stored as (numerator and denominator)
+     * 
+     */
+   private void breakForConversion(char numString[]) 
     {
-        //do some math with c, n, and d
+       
+       //to iterate thru the char array
+        int i = 0;
+  
+        // while not '.' concatenate the char to string characteristic
+        while (numString[i] != '.') 
+        {
+          characteristic = characteristic + numString[i] ; 
+          i++;
+        }
+        
+        // while not '.' concatenate the char to string characteristic
+        while (numString[i] < numString.length) 
+        {
+          numerator = numerator + numString[i] ; 
+          i++;
+        }
+        
+        // places after the decimal to get denominator
+        int places = numerator.length(); 
+        
+        while(places !=0)
+        {
+            denominator = denominator + '0';
+            
+            places--;
+        }
     }
-    else
-    {
-        //handle the error on input
-    }
+   
     
    
-    }
     
-    
-    
-    /* description here*/
-    public boolean characteristic(char numString[], int charateristic)
+    /* uses breakForConversion to break up a given char[] 
+     * tests if the  String characteristic is correct format(able to cast as int)
+     * stores String characteristic as int c and returns true if it is
+     * Returns false if it is not
+     */
+    public boolean characteristic(char numString[], String charateristic)
     {
         
     return true;
     }
 
-    /*description here */
-    public boolean mantissa(char numString[], int numerator, int denominator)
+    /* uses breakForConversion to break up a given char[] 
+     * tests if the  String numerator is correct format(able to cast as int)
+     * stores String numerator as int n  and String denominator as int d  
+     * returns true if valid format
+     * Returns false if it is not
+     */
+    public boolean mantissa(char numString[], String numerator, int denominator)
     {
         
     return true;
