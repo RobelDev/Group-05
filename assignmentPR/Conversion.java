@@ -8,13 +8,13 @@ public class Conversion
     int d; 
     
     // for interum storage after testing
-    String characteristic = "";
-    String numerator = "";
-    String denominator = "1";  
+    String characteristicString = "";
+    String numeratorString = "";
+    String denominatorString = "1";  
     
     char[] number = {'1','2','3','.','4','5','6'};
 
-     
+    
     
     /*Breaks the passed char array into the characteristic string
      * and mantissa stored as (numerator and denominator)
@@ -29,23 +29,23 @@ public class Conversion
         // while not '.' concatenate the char to string characteristic
         while (numString[i] != '.') 
         {
-          characteristic = characteristic + numString[i] ; 
+          characteristicString = characteristicString + numString[i] ; 
           i++;
         }
         
         // while not '.' concatenate the char to string characteristic
         while (numString[i] < numString.length) 
         {
-          numerator = numerator + numString[i] ; 
+          numeratorString = numeratorString + numString[i] ; 
           i++;
         }
         
         // places after the decimal to get denominator
-        int places = numerator.length(); 
+        int places = numeratorString.length(); 
         
         while(places !=0)
         {
-            denominator = denominator + '0';
+            denominatorString = denominatorString + '0';
             
             places--;
         }
@@ -61,19 +61,14 @@ public class Conversion
      */
     public boolean characteristic(char numString[], int charateristic)
     {
-            double Charval;
-            
-            Charval = Double.doubleArr(new String(numString));
-        
-            if(charateristic[0] == (int)Charval)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
-         
+        breakForConversion(numString);
+        int parsed = Integer.parseInt(characteristicString);
+        if( parsed == charateristic)
+        {
+            c = parsed;
+            return true;
+        }
+        return false;
     }
 
     /* uses breakForConversion to break up a given char[] 
@@ -84,34 +79,16 @@ public class Conversion
      */
     public boolean mantissa(char numString[], int numerator, int denominator)
     {
-        double charNum; 
-        int NumNator = 1; 
-        String strNumerator =""; 
-        int index;
-        boolean valIndex = false;
-        charNum = Double.doubleArr(new String(numString));
+        breakForConversion(numString);
+        int parNum = Integer.parseInt(numeratorString);
+        int parDen = Integer.parseInt(denominatorString);
         
-        for(index = 0;index < numString.length; index++)
+        if(parNum == numerator && parDen == denominator)
         {
-            if(numString[index] == ".")
-                valIndex = true;
-            else if (valIndex == true)
-            {
-                strNumerator += numString[index];
-                NumNator *= 10; 
-            }
+            n = parNum;
+            d = parDen;
+            return true;
         }
-        if(valIndex == false);
-        {
-            numerator [0] = 0;
-        }
-        else 
-        {
-            //numerator == false; 
-           //denominator [0] = valIndex/10;
-        }
-        
-    return true;
+        return false;
     }
- }
 }
