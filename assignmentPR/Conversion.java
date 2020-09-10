@@ -59,10 +59,21 @@ public class Conversion
      * stores String characteristic as int c and returns true if it is
      * Returns false if it is not
      */
-    public boolean characteristic(char numString[], String charateristic)
+    public boolean characteristic(char numString[], int charateristic)
     {
+            double Charval;
+            
+            Charval = Double.doubleArr(new String(numString));
         
-    return true;
+            if(charateristic[0] == (int)Charval)
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+         
     }
 
     /* uses breakForConversion to break up a given char[] 
@@ -71,9 +82,36 @@ public class Conversion
      * returns true if valid format
      * Returns false if it is not
      */
-    public boolean mantissa(char numString[], String numerator, int denominator)
+    public boolean mantissa(char numString[], int numerator, int denominator)
     {
+        double charNum; 
+        int NumNator = 1; 
+        String strNumerator =""; 
+        int index;
+        boolean valIndex = false;
+        charNum = Double.doubleArr(new String(numString));
+        
+        for(index = 0;index < numString.length; index++)
+        {
+            if(numString[index] == ".")
+                valIndex = true;
+            else if (valIndex == true)
+            {
+                strNumerator += numString[index];
+                NumNator *= 10; 
+            }
+        }
+        if(valIndex == false);
+        {
+            numerator [0] = 0;
+        }
+        else 
+        {
+            //numerator == false; 
+           //denominator [0] = valIndex/10;
+        }
         
     return true;
     }
+ }
 }
