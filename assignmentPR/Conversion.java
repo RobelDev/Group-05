@@ -1,5 +1,6 @@
 public class Conversion
 {
+    
     // for final storage of characteristic after testing
     int c;
     // for final storage of numerator after testing
