@@ -2,24 +2,27 @@ public class Conversion
 {
     
     // for final storage of characteristic after testing
-    int c;
+    int characteristic;
     // for final storage of numerator after testing
-    int n;
+    int numerator;
      // for final storage of denominator after testing
-    int d; 
+    int denominator; 
     
     // for interum storage after testing
     String characteristicString = "";
     String numeratorString = "";
     String denominatorString = "1";  
     
-    char[] number = {'1','2','3','.','4','5','6'};
+    String number = "123.456";
+    /*At the bequest of of the commentors a char array is diffrent than a string in java.
+     * However it is possible to cast a string to a char array
+     */
+    char[] number = {number.toCharArray()};
 
     
     
     /*Breaks the passed char array into the characteristic string
      * and mantissa stored as (numerator and denominator)
-     * 
      */
    private void breakForConversion(char numString[]) 
     {
@@ -66,7 +69,7 @@ public class Conversion
         int parsed = Integer.parseInt(characteristicString);
         if( parsed == charateristic)
         {
-            c = parsed;
+             characteristic = parsed;
             return true;
         }
         return false;
@@ -86,8 +89,8 @@ public class Conversion
         
         if(parNum == numerator && parDen == denominator)
         {
-            n = parNum;
-            d = parDen;
+            numerator = parNum;
+            denominator = parDen;
             return true;
         }
         return false;
